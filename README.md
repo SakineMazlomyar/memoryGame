@@ -1,1 +1,1 @@
-# memoryGame [Click Here]=(https://sakinemazlomyar.github.io/memoryGame/)!
+# memoryGame [Click Here](https://sakinemazlomyar.github.io/memoryGame/)!
