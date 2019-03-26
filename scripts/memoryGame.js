@@ -49,18 +49,22 @@ function clickOnDiv(img) {
     if (!hasFlipped) {
         hasFlipped = true;
         firstImgSrc = img.src;
-        img.style.opacity = "1";
         img1 = img;
+        img1.style.opacity = "1";
     }
     else {
-        img1.style.opacity = "0";
-        img1.style.transition = "opacity 2s";
         hasFlipped = false;
         secondImgSrc = img.src;
         img2 = img;
+        img2.style.opacity = "1";
         if (firstImgSrc == secondImgSrc) {
             img1.style.opacity = "1";
             img2.style.opacity = "1";
+        } else {
+            setTimeout(function(){
+                img1.style.opacity = "0";
+                img2.style.opacity = "0";
+            }, 500)
         }
     }
 }
