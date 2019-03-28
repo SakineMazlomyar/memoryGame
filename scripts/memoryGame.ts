@@ -1,18 +1,16 @@
-
-let dublicateNumbers = [];
+let dublicateNumbers: Array<number> = [];
 (function createRandomNumber(){
     let numbers = [1,2,3,4,5,6];
     for(let i =0; i<2; i++) {
     numbers.forEach(number => {
         dublicateNumbers.push(number)
-    })
-        
+    })     
     }
 })()
 //Here We shuffle the array
-function shuffle(array) {
-    let newPos;
-    let temperoryNum;
+function shuffle() {
+    let newPos: number;
+    let temperoryNum: number;
     for(let i = dublicateNumbers.length-1; i>0 ; i--){
         newPos = Math.floor(Math.random()* i+1);
         //This is the value we have
@@ -23,9 +21,9 @@ function shuffle(array) {
         dublicateNumbers[newPos] = temperoryNum;
 
     }
-    return array;
+    return dublicateNumbers;
 }
-shuffle(dublicateNumbers);
+shuffle();
 
 function createDivForNumber(){
     let container = document.createElement("div")
@@ -47,28 +45,34 @@ function createDivForNumber(){
     document.body.appendChild(container);
 }
 let hasFlipped = false;
-let firstImgSrc;
-let secondImgSrc;
+let firstImgSrc: string;
+let secondImgSrc: string;
 
-let img1
-let img2
-function clickOnDiv(img) {
+let img1: HTMLElement;
+let img2: HTMLElement;
+function clickOnDiv(img:HTMLImageElement) {
     if(!hasFlipped) {
         hasFlipped = true;
-        firstImgSrc = img.src
-        img.style.opacity = "1"
-        img1 = img
+        firstImgSrc = img.src;
+        img1 = img;
+        img1.style.opacity = "1";
 
     } else{
-        img1.style.opacity = "0"
-        img1.style.transition = "opacity 2s";
-
+        
         hasFlipped = false;
-        secondImgSrc = img.src
-        img2 = img
+        secondImgSrc = img.src;
+        img2 = img;
+        img2.style.opacity = "1";
         if(firstImgSrc == secondImgSrc) {
             img1.style.opacity = "1";
             img2.style.opacity = "1";
+                
+        }else {
+            setTimeout(() => {
+            img1.style.opacity = "0";
+            img2.style.opacity = "0";
+
+        }, 300);
         }
     }
 }

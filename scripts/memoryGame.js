@@ -8,7 +8,7 @@ var dublicateNumbers = [];
     }
 })();
 //Here We shuffle the array
-function shuffle(array) {
+function shuffle() {
     var newPos;
     var temperoryNum;
     for (var i = dublicateNumbers.length - 1; i > 0; i--) {
@@ -20,9 +20,9 @@ function shuffle(array) {
         //This is the new position which we set that value on this position
         dublicateNumbers[newPos] = temperoryNum;
     }
-    return array;
+    return dublicateNumbers;
 }
-shuffle(dublicateNumbers);
+shuffle();
 function createDivForNumber() {
     var container = document.createElement("div");
     container.setAttribute("id", "container");
@@ -60,11 +60,12 @@ function clickOnDiv(img) {
         if (firstImgSrc == secondImgSrc) {
             img1.style.opacity = "1";
             img2.style.opacity = "1";
-        } else {
-            setTimeout(function(){
+        }
+        else {
+            setTimeout(function () {
                 img1.style.opacity = "0";
                 img2.style.opacity = "0";
-            }, 500)
+            }, 300);
         }
     }
 }
